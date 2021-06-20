@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>迷路を楽しもう！</title>
+    <!-- モーダル関連 -->
+    <link rel="stylesheet" type="text/css" href="styles/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="styles/layerBoard.css" media="all" />
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/jquery.layerBoard.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <script>
+        $(function () { $('#layer_board_area').layerBoard({ alpha: 0.5 }); })
+    </script>
+</head>
+<body  oncontextmenu='return false;' oncopy='return false;'　　>
+    <div class="time">
+        <p>残り時間：　<span class="remain_time" id="keke">60.0</span>　秒</p>
+    </div>
+    <div id="game">
+        <!-- layer_board -->
+    　　<div id="layer_board_area">
+            <div class="layer_board_bg"></div>
+            <div class="layer_board_start">
+                <div class="modal__explains_start">
+                    60秒以内に迷路をクリアしてください！</br>
+                    マウスではなく、十字キー(↑→↓←)で移動できます。</br>
+                    クリアすれば、お宝画像が見れます！</br>
+                    『スタート』を押せば即、ゲームが始まります！</br>
+                    準備はイイですか？
+                </div>
+                <div class="modal__footer">
+                    <button class="modal_btn modal_btn_start">戻る</button>
+                    <button class='modal_btn modal_btn_start btn_close' onclick="gameStart()"　> OK, スタート！</button>
+                </div>
+            </div>
+            <div class="layer_board_success" id="success">
+                <div class="success_title">SUCCESS!!!</div>
+                <div class="modal__explains_success">
+                    <p>おめでとう！<br>見事ゲームをクリアした貴方に、お宝画像をプレゼント❤️<br>下のリンクから飛んでね！</p>
+                </div>
+                <div class="modal__footer">
+                    <button class="modal_btn modal_btn_success" onclick="location.reload(true)" >プレゼント先リンク</button>
+                </div>
+            </div>
+            <div class="layer_board_failure" id="failure">
+                <div class="failure_title">FAILURE...</div>
+                <div class="modal__explains_failure">
+                    <p>残念…<br>また頑張る？</p>
+                </div>
+                <div class="modal__footer">
+                    <button class="modal_btn modal_btn_failure"  onclick="location.reload(true)">リプレイ</button>
+                </div>
+            </div>
+        </div>
+        <!-- 迷路 -->
+        <div class="canvas-container">
+            <canvas id="canvas" style="display: block;margin: 0 auto;"></canvas>
+        </div>
+        <footer class="arrows">
+            <div class="left" id="left">    <img src="img/left.png"　 width="80" height="110"></div>
+            <div class="upanddown">
+                <div class="up" id="up"><img src="img/up.png"  width="160" height="55"></div>
+                <div class="down" id="down"><img src="img/down.png" width="160" height="55"></div>
+            </div>
+            <div class="right" id="right"><img src="img/right.png" width="80" height="110"></div>
+        </footer>
+    </div>
+</body>
+<!-- <script type="text/javascript" src="js/createimages.js"></script> -->
+<script type="text/javascript" src="js/createimages1.js"></script>
+<script src="js/time.js"></script>
+</html>

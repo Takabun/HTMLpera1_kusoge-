@@ -1,0 +1,115 @@
+
+#rico {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* ricoちゃんの周りを明るくするために買ってみた */
+.rico-around {
+	/* ↓幅はレスポンシブに対応させたい */
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	opacity: 0.7px;
+}
+
+button {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.time {
+	display: flex;
+	height: 40px;
+	line-height: 40px;
+}
+
+.time p {
+	display: inline-block;
+	margin: 0 auto  !important;
+	padding: 0 20px 0 20px;
+	border-radius: 15px;
+	border: solid 2px #05A5EE;
+}
+
+
+.remain_time {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/* bodyにかければ、ハイ解決！！(pointer-eventsをコメントアウトすればレイヤーボードもちゃんと動く) */
+/* imgにかける必要はもうない */
+body, .canvas-container{
+	/* pointer-events:none; */
+	user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-touch-callout:none;
+	-moz-user-select: none;
+}
+
+/* #canvasにmarginは効かなかったが, div containerには効く */
+/* このcontainerのwidthをレスポンシブ対応にする！！ */
+.canvas-container {
+	width: 90%;
+	margin: 0 auto;
+}
+
+/* #canvas {
+	background-image: url(../img/haikei.png);
+} */
+
+.arrows{
+	display: none;
+}
+
+/* SPとTB両方でコレを適用 */
+@media (max-width: 1020px) { 
+	#canvas {
+		max-height: calc(100vh - 280px);
+	}
+}
+
+@media screen and (max-width:768px){
+	.arrows {
+		position:fixed;
+		bottom: 0px;
+		left: 50%;
+		transform: translate(-50%, 0%);
+		display: flex;  
+		width:50%;
+		height: auto;
+		background-color: rgb(245,245,245);
+		opacity: 0.8;
+	}
+	.left, .right{
+		display: block;
+		width: 25%;
+	}
+	.upanddown {
+		width: 50%;
+	}
+	.up, .down {
+		width:100%;
+	}
+}
+
+@media screen and (max-width:480px){
+	.arrows {
+		width: 70%;
+	}
+}
+
+img {
+	display: block;
+	width: 100%;
+	/* pointer-events: none; */
+}
+
+img:active {
+	opacity:0.5;
+}
+
+
